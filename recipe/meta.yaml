@@ -19,6 +19,7 @@ build:
     - conda_envfile_merge = {{ name }}:_conda_envfile_merge_cli
     - conda_envfile_parse = {{ name }}:_conda_envfile_parse_cli
     - conda_envfile_restrict = {{ name }}:_conda_envfile_restrict_cli
+    - conda_envfile_diff = {{ name }}:_conda_envfile_diff_cli
 
 requirements:
   host:
@@ -29,12 +30,12 @@ requirements:
     - click
     - jinja2
     - packaging
+    - prettytable
     - python >=3
     - pyyaml
 
 test:
   requires:
-    - git
     - pip
   imports:
     - {{ name }}
@@ -44,6 +45,7 @@ test:
     - conda_envfile_merge --version | grep {{ version }}
     - conda_envfile_parse --version | grep {{ version }}
     - conda_envfile_restrict --version | grep {{ version }}
+    - conda_envfile_diff --version | grep {{ version }}
 
 about:
   home: https://github.com/{{ org }}/{{ name }}
